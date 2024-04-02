@@ -16,6 +16,7 @@ export var SIMPLE_PEER_PING_INTERVAL = 1000 * 60 * 2;
 export function getConnectionHandlerSimplePeer({
   signalingServerUrl,
   wrtc,
+  config,
   webSocketConstructor
 }) {
   ensureProcessNextTickIsSet();
@@ -86,6 +87,7 @@ export function getConnectionHandlerSimplePeer({
                 var newSimplePeer = new Peer({
                   initiator: remotePeerId > ownPeerId,
                   wrtc,
+                  config,
                   trickle: true
                 });
                 newSimplePeer.id = randomCouchString(10);
